@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>1 - Active Directory Definition</title>
+</head><body><span style="font-size: 20pt"><span style="font-family: Yu Gothic"><b>Active Directory Definition:</b><br/>
+<a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)?redirectedfrom=MSDN">https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc780036(v=ws.10)?redirectedfrom=MSDN</a><br/>
+<a href="https://technet.microsoft.com/en-us/library/cc780036(v=ws.10).aspx">https://technet.microsoft.com/en-us/library/cc780036(v=ws.10).aspx</a><br/>
+<br/>
+<br/>
+<b>Cosa è Active Directory:</b><ul><li>E' un servizio Directory, usato per gestire reti di PC Windows</li>
+<li>Conserva le informazioni degli oggetti sulla rete, per renderle disponibili agli utenti o amministratori</li>
+<li>Permette la gestione <b>centralizzata </b>della sicurezza di una rete</li>
+</ul>
+<br/>
+<img src="active-directory-definition.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Esistono diversi oggetti nell'ambito dell' Active Directory:</b><ul><li><b>Schema:</b>&nbsp;Definisce gli oggetti e i loro attributi (E.G. definisce un Windows User e i suoi attributi)</li>
+<li><b>Query e meccanismi di indicizzazioni:</b>&nbsp;Provvedono la ricerca e la pubblicazione di oggetti e le loro proprietà</li>
+<li><b>Global Catalog:</b>&nbsp;Contiene informazioni riguardo ogni oggetto nella directory</li>
+<li><b>Replication Service:</b>&nbsp;Distribuisce informazioni attraverso altri Domain Controller</li>
+</ul>
+<img src="active-directory-components.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Elementi principali di una struttura Active Directory:</b><ul><li><b>Foreste: </b>Contengono e gestiscono differenti domini. Vengono considerati dei domini di sicurezza più esterni.</li>
+<li><b>Domini: </b>Contengono e gestiscono Organization Units (OUs)</li>
+<b><li>Organization Units (OUs): </li>
+</b></ul>
+<b><br/>
+</b><b>Generalmente si parla di Active Directory di una foresta, non di un dominio.</b><br/>
+<img src="active-directory-structure.png" width="900" height="392" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Quello che facciamo è abusare delle funzioni di trust tra domini e foreste.<br/>
+Inoltre abuseremo di altre componenti AD.<br/>
+</b><b>Quindi avremo a che fare di funzioni da exploitare e non di exploit veri e propri.</b><br/>
+</span></span></body></html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Active-Directory-Definition.pdf</string>
+  <key>nodeid</key><string>ae9dcd09-e7c2-45bb-af4f-a3b8d92a5e5e</string>
+  <key>modified_time</key><integer>1609532742</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>active-directory-definition.pdf</string>
+  <key>content_type</key><string>application/pdf</string>
+  <key>created_time</key><integer>1609532742</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
