@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Domain Enumeration</title>
+</head><body>Domain Enumeration<br/>
+<br/>
+<br/>
+Iniziamo con l'enumerazione del dominio, assieme al mapping<br/>
+di diverse entità, trusts, relazioni e privilegi del dominio target.<br/>
+<br/>
+L'enumerazione può essere effettuata tramite<b>&nbsp;Eseguibili Nativi o Classi .NET</b><br/>
+<br/>
+<b>Esempio con classe .NET:<br/>
+</b><b>E' possibile scrivere il tutto in Poweshell, senza intaccare i dischi ed usando solo la memoria!</b><br/>
+<img src="domain-enumeration-net-class.png" width="900" height="127" /><br/>
+<br/>
+<img src="domain-enumeration-net-example.png" /><hr/><hr/><b>Poweview</b><br/>
+<br/>
+<br/>
+Poweview è uno script in Powershell, usato per automatizzare l'enumerazione.<br/>
+<br/>
+<b>Github repo:</b><br/>
+<a href="https://github.com/PowerShellEmpire/PowerTools/blob/master/PowerView/powerview.ps1">https://github.com/PowerShellEmpire/PowerTools/blob/master/PowerView/powerview.ps1</a><br/>
+<br/>
+<br/>
+<b>Ora si è spostato su un altro repo più recente:</b><br/>
+<a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1<br/>
+<br/>
+<br/>
+</a>Come importare lo script:<br/>
+Basta disabilitare l'ExecutionPolicy ed eseguire lo script<br/>
+<img src="powerview-script-import.png" /><br/>
+<b><hr/><hr/></b><b>Active Directory Powershell Module</b><br/>
+<br/>
+<br/>
+E' un modulo di Active Directory, utilizzabile tramite "Import-Module" da Powershell.<br/>
+Per usare il modulo senza usare RSAT (Remote Server Administration Tools),<br/>
+possiamo usare "Import-Module" per il modulo DLL ActiveDirectoy valido.<br/>
+<br/>
+Un buon vantaggio è che è possibile usare questo modulo,<br/>
+anche in constraint mode o limitati!<br/>
+<br/>
+<br/>
+Documentazione:<br/>
+<a href="https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps">https://docs.microsoft.com/en-us/powershell/module/addsadministration/?view=win10-ps</a><br/>
+<br/>
+Modulo ed info su come installarlo:<br/>
+<a href="https://github.com/samratashok/ADModule">https://github.com/samratashok/ADModule</a><br/>
+<hr/><hr/><br/>
+<b>Domain Enumeration (con PowerView ed ADModule)</b><br/>
+<br/>
+<br/>
+Ecco alcuni esempi di come è possibile enumerare i domini con questi 2 strumenti:<br/>
+<b>Il comando sopra è PowerView, quello sotto è del modulo ADModule!<br/>
+<br/>
+<br/>
+Ottieni il Dominio corrente:<br/>
+</b><img src="1.png" /><b><br/>
+</b><img src="get-netdomain-powerview.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Ottieni un oggetto da un altro dominio:<br/>
+</b><b>In questo caso, "moneycorp.local" è il dominio padre di "dollarcorp.moneycorp.local"</b><br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<b>Ottieni il SID (Security Identifier) del dominio corrente:</b><br/>
+<img src="3.png" /></body></html>

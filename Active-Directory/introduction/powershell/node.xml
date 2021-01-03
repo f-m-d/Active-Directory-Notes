@@ -2,9 +2,9 @@
 <node>
 <version>6</version>
 <dict>
-  <key>title</key><string>2 - Powershell</string>
+  <key>title</key><string>Powershell</string>
   <key>nodeid</key><string>e2275d02-0069-4e9b-b20b-705d965e9e62</string>
-  <key>modified_time</key><integer>1609538796</integer>
+  <key>modified_time</key><integer>1609598925</integer>
   <key>version</key><integer>6</integer>
   <key>content_type</key><string>text/xhtml+xml</string>
   <key>created_time</key><integer>1609534976</integer>

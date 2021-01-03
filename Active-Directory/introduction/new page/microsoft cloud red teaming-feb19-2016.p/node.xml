@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Microsoft Cloud Red Teaming-Feb19-2016.pdf</string>
+  <key>nodeid</key><string>b7fc0350-f5d6-4317-b158-813a17f352c2</string>
+  <key>modified_time</key><integer>1609600916</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>microsoft cloud red teaming-feb19-2016.pdf</string>
+  <key>content_type</key><string>application/pdf</string>
+  <key>created_time</key><integer>1609600916</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
