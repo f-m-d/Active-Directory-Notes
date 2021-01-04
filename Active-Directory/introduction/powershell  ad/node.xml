@@ -2,7 +2,7 @@
 <node>
 <version>6</version>
 <dict>
-  <key>title</key><string>3 - Powershell &amp; AD</string>
+  <key>title</key><string>Powershell &amp; AD</string>
   <key>nodeid</key><string>783cb090-0b49-41e2-bca2-b3926013d895</string>
   <key>modified_time</key><integer>1609599555</integer>
   <key>version</key><integer>6</integer>

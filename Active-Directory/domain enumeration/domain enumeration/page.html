@@ -3,8 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Domain Enumeration</title>
-</head><body>Domain Enumeration<br/>
-<br/>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Domain Enumeration</span></div></b><span style="font-size: 21pt"><br/>
+</span><span style="font-size: 21pt"><br/>
 <br/>
 Iniziamo con l'enumerazione del dominio, assieme al mapping<br/>
 di diverse entità, trusts, relazioni e privilegi del dominio target.<br/>
@@ -15,8 +15,8 @@ L'enumerazione può essere effettuata tramite<b>&nbsp;Eseguibili Nativi o Classi
 </b><b>E' possibile scrivere il tutto in Poweshell, senza intaccare i dischi ed usando solo la memoria!</b><br/>
 <img src="domain-enumeration-net-class.png" width="900" height="127" /><br/>
 <br/>
-<img src="domain-enumeration-net-example.png" /><hr/><hr/><b>Poweview</b><br/>
-<br/>
+<img src="domain-enumeration-net-example.png" /><hr/><hr/></span><div style="text-align: center"><span style="font-size: 31pt"><b>Poweview</b></span></div><span style="font-size: 21pt"><br/>
+</span><span style="font-size: 21pt"><br/>
 <br/>
 Poweview è uno script in Powershell, usato per automatizzare l'enumerazione.<br/>
 <br/>
@@ -31,8 +31,8 @@ Poweview è uno script in Powershell, usato per automatizzare l'enumerazione.<br
 </a>Come importare lo script:<br/>
 Basta disabilitare l'ExecutionPolicy ed eseguire lo script<br/>
 <img src="powerview-script-import.png" /><br/>
-<b><hr/><hr/></b><b>Active Directory Powershell Module</b><br/>
-<br/>
+<b><hr/><hr/></b></span><b><div style="text-align: center"><span style="font-size: 31pt">Active Directory Powershell Module</span></div></b><span style="font-size: 21pt"><br/>
+</span><span style="font-size: 21pt"><br/>
 <br/>
 E' un modulo di Active Directory, utilizzabile tramite "Import-Module" da Powershell.<br/>
 Per usare il modulo senza usare RSAT (Remote Server Administration Tools),<br/>
@@ -47,9 +47,8 @@ Documentazione:<br/>
 <br/>
 Modulo ed info su come installarlo:<br/>
 <a href="https://github.com/samratashok/ADModule">https://github.com/samratashok/ADModule</a><br/>
-<hr/><hr/><br/>
-<b>Domain Enumeration (con PowerView ed ADModule)</b><br/>
-<br/>
+<hr/><hr/></span><div style="text-align: center"><span style="font-size: 31pt"><b>Domain Enumeration (con PowerView ed ADModule)</b></span></div><span style="font-size: 21pt"><br/>
+</span><span style="font-size: 21pt"><br/>
 <br/>
 Ecco alcuni esempi di come è possibile enumerare i domini con questi 2 strumenti:<br/>
 <b>Il comando sopra è PowerView, quello sotto è del modulo ADModule!<br/>
@@ -58,13 +57,30 @@ Ecco alcuni esempi di come è possibile enumerare i domini con questi 2 strument
 Ottieni il Dominio corrente:<br/>
 </b><img src="1.png" /><b><br/>
 </b><img src="get-netdomain-powerview.png" /><br/>
-<br/>
+<img src="get-addomain.png" /><br/>
 <br/>
 <br/>
 <b>Ottieni un oggetto da un altro dominio:<br/>
-</b><b>In questo caso, "moneycorp.local" è il dominio padre di "dollarcorp.moneycorp.local"</b><br/>
+</b>In questo caso, "moneycorp.local" è il dominio padre di "dollarcorp.moneycorp.local".<br/>
+Possiamo sfruttare la trust tra domain e figlio per ottenere informazioni!<br/>
 <img src="2.png" /><br/>
+<img src="get-netdomain-domain.png" /><br/>
+<img src="get-addomain-identity.png" /><br/>
+<br/>
+</span><span style="font-size: 21pt"><b>Ottieni il SID (Security Identifier) del dominio corrente:</b></span><br/>
+<img src="3.png" /><br/>
+<img src="get-domainsid.png" /><br/>
+<br/>
+<span style="font-size: 21pt">DomainSID può essere trovato per ADModule già in <b>Get-ADDomain</b>!<br/>
+Puoi specificare l'elemento usando il punto.<br/>
 <br/>
 <br/>
-<b>Ottieni il SID (Security Identifier) del dominio corrente:</b><br/>
-<img src="3.png" /></body></html>
+<br/>
+Puoi vedere Domain Policy per il Domain corrente, con PowerView:<br/>
+<img src="get-domainpolicy.png" /><br/>
+<img src="get-domainpolicy 2.png" /><br/>
+<img src="get-domainpolicy-systemaccess.png" /><br/>
+<br/>
+</span><span style="font-size: 21pt">Si può vedere la Domain Policy di un dominio per il quale si ha trust, come quello padre!</span><br/>
+<img src="get-domainpolicy-domain.png" /><br/>
+</body></html>
