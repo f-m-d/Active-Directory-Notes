@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Domain Enumeration</title>
-</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Domain Enumeration</span></div></b><span style="font-size: 21pt"><br/>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt"><span style="font-family: Yu Gothic">Domain Enumeration</span></span></div></b><span style="font-size: 21pt"><br/>
 </span><span style="font-size: 21pt"><br/>
 <br/>
 Iniziamo con l'enumerazione del dominio, assieme al mapping<br/>
@@ -15,7 +15,7 @@ L'enumerazione può essere effettuata tramite<b>&nbsp;Eseguibili Nativi o Classi
 </b><b>E' possibile scrivere il tutto in Poweshell, senza intaccare i dischi ed usando solo la memoria!</b><br/>
 <img src="domain-enumeration-net-class.png" width="900" height="127" /><br/>
 <br/>
-<img src="domain-enumeration-net-example.png" /><hr/><hr/></span><div style="text-align: center"><span style="font-size: 31pt"><b>Poweview</b></span></div><span style="font-size: 21pt"><br/>
+<img src="domain-enumeration-net-example.png" /><hr/><hr/></span><b><span style="font-size: 31pt"><div style="text-align: center">Poweview</div></span></b><span style="font-size: 21pt"><br/>
 </span><span style="font-size: 21pt"><br/>
 <br/>
 Poweview è uno script in Powershell, usato per automatizzare l'enumerazione.<br/>
@@ -31,7 +31,7 @@ Poweview è uno script in Powershell, usato per automatizzare l'enumerazione.<br
 </a>Come importare lo script:<br/>
 Basta disabilitare l'ExecutionPolicy ed eseguire lo script<br/>
 <img src="powerview-script-import.png" /><br/>
-<b><hr/><hr/></b></span><b><div style="text-align: center"><span style="font-size: 31pt">Active Directory Powershell Module</span></div></b><span style="font-size: 21pt"><br/>
+<b><hr/><hr/></b></span><b><span style="font-size: 31pt"><div style="text-align: center">Active Directory Powershell Module</div></span></b><span style="font-size: 21pt"><br/>
 </span><span style="font-size: 21pt"><br/>
 <br/>
 E' un modulo di Active Directory, utilizzabile tramite "Import-Module" da Powershell.<br/>
@@ -47,7 +47,7 @@ Documentazione:<br/>
 <br/>
 Modulo ed info su come installarlo:<br/>
 <a href="https://github.com/samratashok/ADModule">https://github.com/samratashok/ADModule</a><br/>
-<hr/><hr/></span><div style="text-align: center"><span style="font-size: 31pt"><b>Domain Enumeration (con PowerView ed ADModule)</b></span></div><span style="font-size: 21pt"><br/>
+<hr/><hr/></span><b><span style="font-size: 31pt"><div style="text-align: center">Domain Enumeration (con PowerView ed ADModule)</div></span></b><span style="font-size: 21pt"><br/>
 </span><span style="font-size: 21pt"><br/>
 <br/>
 Ecco alcuni esempi di come è possibile enumerare i domini con questi 2 strumenti:<br/>
@@ -81,6 +81,83 @@ Puoi vedere Domain Policy per il Domain corrente, con PowerView:<br/>
 <img src="get-domainpolicy 2.png" /><br/>
 <img src="get-domainpolicy-systemaccess.png" /><br/>
 <br/>
-</span><span style="font-size: 21pt">Si può vedere la Domain Policy di un dominio per il quale si ha trust, come quello padre!</span><br/>
+Fai attenzione anche ad info utili come quelle per Kerberos,<br/>
+ci serviranno per i Kerberos Ticket!<br/>
+<img src="get-domainpolicy-kerberos-policy.png" /><br/>
+<br/>
+<br/>
+</span><span style="font-size: 21pt"><b>Si può vedere la Domain Policy di un dominio per il quale si ha trust, come quello padre!</b></span><br/>
 <img src="get-domainpolicy-domain.png" /><br/>
-</body></html>
+<br/>
+<br/>
+<br/>
+<span style="font-size: 21pt"><span style="font-family: Yu Gothic"><br/>
+<b>Ottieni informazioni sul Domain Controller:</b><br/>
+<img src="1 2.png" /><br/>
+<img src="1 3.png" /><br/>
+<img src="2 3.png" /><br/>
+<b><br/>
+<br/>
+</b><b>Oppure informazioni sul Domain Controller di un altro dominio trustato!</b><br/>
+<img src="2 2.png" /><br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Ottieni la lista degli utenti correnti per il dominio o di un certo utente:<br/>
+Ricorda: le opzioni di <i>-Properties</i>, <i>-Identity</i>&nbsp;e <i>-Filter</i>&nbsp;sono comuni a molti moduli di AD!<br/>
+<img src="1 5.png" /><br/>
+<img src="1 6.png" /><br/>
+<img src="2 4.png" /><br/>
+<br/>
+Puoi anche greppare gli elementi che ti servono, usando "select + proprieta_voluta"<br/>
+In questo caso, se vogliamo greppare "cn" (Common Name), possiamo fare cosi:<br/>
+<img src="3 2.png" /><br/>
+<br/>
+<br/>
+<b>Belle cosette da greppare sono:</b><ul><li>CN (Common Name)</li>
+<li>Name</li>
+<li>Description</li>
+<li>ObjectSID</li>
+</ul>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Puoi ottenere tutte le opzioni degli utenti per il dominio corrente:<br/>
+<img src="1 7.png" /><br/>
+<img src="1 8.png" /><br/>
+<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+<b>Opzioni utili sono:</b><ul><li><b>PwdLastSet</b>: quando è stata cambiata la password</li>
+<li><b>BadPwdCount:</b>&nbsp;Quando la password è stata sbagliata (Tante volte = bruteforce!)</li>
+</ul>
+<br/>
+<b>Queste opzioni sono utili per differenziare un user decoy da uno che potrebbe essere<br/>
+usato per effettuare l'enumeration!<br/>
+<br/>
+Gli utenti possono sbagliare password ed hanno almeno <u>BadPwdCount</u>&nbsp;ad 1 o più.<br/>
+<br/>
+Inoltre, per policy di azienda, gli utenti cambiano la password mensilmente,<br/>
+semestrale, annualmente, cambiando il valore di <u>PwdLastSet</u>.<br/>
+<br/>
+Altre opzioni sono di <u>LogOnCount</u>, quante volte hanno effettuato il login.<br/>
+Utile per capire se sono decoy o meno.<br/>
+<br/>
+</b><b><i>Stai attento a cosa attacchi perché alcuni sono decoy usati per bloccarti.</i></b><br/>
+<br/>
+<img src="2 5.png" /><br/>
+<img src="1 9.png" /><br/>
+<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b>Altra opzione utile è cercare nelle descrizioni:<br/>
+</b></span></span><span style="font-size: 21pt"><span style="font-family: Yu Gothic"><b>spesse volte ci scrivono info utili o perfino le password!</b></span></span><br/>
+<img src="1 12.png" /></body></html>

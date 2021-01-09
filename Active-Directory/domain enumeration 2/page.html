@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Domain Enumeration 2</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Domain Enumeration 2</span></div></b><span style="font-size: 21pt"><br/>
+</span><span style="font-size: 21pt"><br/>
+<br/>
+<br/>
+<b>Ottieni la lista di computer presenti nel dominio corrente:<br/>
+questo cercherà tutti gli oggetti del tipo "computer".<br/>
+<br/>
+</b><b>Ricorda di usare la -FullData per ottenre le info complete di Powerview!</b><br/>
+<img src="1.png" /><br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b>Seleziona tutti i gruppi del dominio corrente:<br/>
+</b><b>Possiamo estrarre info da un dominio trusted usando l'opzione -Domain</b><br/>
+<img src="1 3.png" /><br/>
+<img src="1 4.png" /><br/>
+<img src="2 2.png" /><br/>
+<br/>
+<br/>
+Alcuni Admin solo trovabili nel Domain Controller:<br/>
+Come gli Enterprise Admins!<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<b>Seleziona tutti i gruppi con "admin" presente nel nome</b><br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ottieni i membri di un gruppo:<br/>
+Alcuni membri di un gruppo potrebbero essere altri gruppi!<br/>
+Per questo l'opzione -Recurse permette di enumerare tutti ricorsivamente!<br/>
+<img src="1 6.png" /><br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+Nota bene:<br/>
+"IsGroup" indica se stiamo leggendo un gruppo (il quale fa parte del gruppo che stiamo leggendo!)<br/>
+"Administrator", se non viene cambiato, è di default l'Admin del Dominio.<br/>
+Anche se rinominato, è facile da identificare:<br/>
+<b>MemberSID si divide in 2 parti: S-1...-683 è il SID dell'elemento nel dominio,<br/>
+</b><b>mentre 500 è l'Object Identifier detto RID.</b><br/>
+<br/>
+Il SID rende unico un elemento in un dominio, il RID lo rende unico in una foresta.<br/>
+<br/>
+<b>Quindi, se trovi RID uguali, anche con SID differenti, sono gli stessi oggetti nella foresta!</b><br/>
+<img src="1 9.png" /><br/>
+<br/>
+<br/>
+Ottieni la group membership di un singolo utente:<br/>
+</span><span style="font-size: 21pt">Permette di ottenere a quali gruppi appartiene un certo utente!</span><br/>
+<img src="1 7.png" /><br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b><span style="font-size: 21pt">Lista tutti i gruppi locali di una macchina<br/>
+(richiede permessi da admin, se non siamo su un Domain Controller)<br/>
+<img src="1 11.png" /><br/>
+<img src="1 12.png" /><br/>
+<br/>
+Se rimuovo l'opzione "-ListGroups", abbiamo la membership dei gruppi Admin sul -ComputerName<br/>
+<img src="2 4.png" /><br/>
+<br/>
+Lista tutti gli utenti locali di un computer<br/>
+(richiede permessi da admin, se non siamo su un Domain Controller)<br/>
+<img src="2 3.png" /><br/>
+<hr/><hr/><br/>
+<br/>
+Ottieni la lista degli utenti ATTIVI loggati sulla macchina:<br/>
+(necessiti dei permessi LOCALI da Admin)<br/>
+<img src="1 13.png" /><br/>
+<br/>
+<br/>
+Permette di ottenere la lista degli utenti loggati su una macchina<br/>
+(necessiti del Registro Remoto sul target, avviato di default sull' OS del server)<br/>
+<img src="2 5.png" /><br/>
+<img src="1 14.png" /><br/>
+<br/>
+Permette di sapere chi è stato l'ultimo a loggare<br/>
+</span></b><b><span style="font-size: 21pt">(Necessiti di permessi da amministratore e Remote Registri, entrambi sul Computer scelto!)</span></b><br/>
+<img src="3.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+<span style="font-size: 21pt"><b>Permette di ottenere le shares sulla macchina corrente:<br/>
+<img src="1 15.png" /><br/>
+<img src="1 16.png" /><br/>
+Puoi escludere quelle comuni con vare opzioni:<br/>
+<img src="1 17.png" /><br/>
+<br/>
+<br/>
+<br/>
+Permette di ottenere file sensibili sulla macchina scelta:<br/>
+Li cerca negli share!<br/>
+<img src="2 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+</b></span><span style="font-size: 21pt"><b>Cerca i fileserver disponibili sulla macchina:</b></span><br/>
+<img src="3 2.png" /><br/>
+<br/>
+</body></html>
