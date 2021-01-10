@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>New Page</title>
+</head><body>ACL (Access Control Model)<br/>
+<br/>
+<br/>
+Permette di abiltiare controlli sull'abilità di un processo di poter accedere<br/>
+ad Oggetti o altre risorse in Active Directory, basandosi su vari elementi:<br/>
+<ul><li>Access Tokens (security context di un processo -oppure - identità e privilegi di un utente)</li>
+<li>Security Descriptors (SID dell'owner dell'oggetto, Discretionary ACL (DACL) e System ACL (SACL)) </li>
+</ul>
+<br/>
+<br/>
+Quando un processo o persona deve accedere ad una risorsa,<br/>
+deve presentare il suo Access Token.<br/>
+<br/>
+Dall'altro lato, l'oggetto il quale viene accesso,<br/>
+possiede i Security Descriptors.<br/>
+La <i><b>DACL</b></i>&nbsp;è la lista di chi ha i permessi per accedere a questo oggetto,<br/>
+La <b><i>SACL</i></b>&nbsp;controlla la policy applicata sull'oggetto (e.g. logga permessi mancati da chi prova ad accedere)<br/>
+<br/>
+<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+12:26</body></html>
