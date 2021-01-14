@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trusts</title>
+</head><body><b>Trusts in Domain and Forests</b><br/>
+<br/>
+<br/>
+In un ambiente di Active Directory, la trust è una relazione tra 2 domini o foreste,<br/>
+la quale permette gli utenti di un dominio/foresta di accedere le risorse in un altro dominio/foresta.<br/>
+<br/>
+La Trust può essere Automatica come ad esempio:<ul><li>Trust Padre-Figlio</li>
+<li>Trust nella stessa foresta</li>
+</ul>
+<br/>
+<br/>
+Oppure la Trust può essere Stabilita: in questo caso la dichiaramo tra 2 elementi esterni.<br/>
+<br/>
+<br/>
+<b>Gli oggetti che rappresentano questa relazioni sono chiamati:<br/>
+TDOs (Trusted Domain Objects)<br/>
+</b><hr/><hr/><b><br/>
+<br/>
+Esistono diversi tipi di Trust, come sottocategorie di Automatic e Stabilità:<br/>
+<br/>
+One-way trust:<br/>
+</b>Gli utenti possono accedere ad una risorsa su un domino o foresta,<br/>
+ma non viceversa!<br/>
+<br/>
+<i><b>Ricorda bene: in questo caso la direzione di trust è opposta<br/>
+</b></i><i><b>alla direzione di accesso alle risorse!</b></i><br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Two-way trust:</b><br/>
+In breve: Bidirezionale.<br/>
+Utenti da ambo i domini possono accedere le risorse in ambo le direzioni<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Trust transitiva:<br/>
+<br/>
+Una Trust può essere estesa, per collegarsi ad altri domini.<br/>
+Le relazioni default come Tree-Root e Parent-Child tra domini<br/>
+della stessa foresta sono Trust transitive a 2 way<br/>
+<br/>
+Altrimenti, esistono Trust non transitive.<br/>
+Queste non permettono di essere estese agli stessi domini nella foresta.<br/>
+<br/>
+Questo è il tipo di Trust di default tra 2 domini di 2 foreste separate,<br/>
+le quali foreste non hanno una Trust tra di loro &nbsp;<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Altri tipi di Trust sono quelle automatiche.<br/>
+<b>Parent-Child è una di queste.</b><br/>
+Ad esempio, se a.b.c è figlio del dominio b.c, allora<br/>
+tra loro due vi è una Trust transitiva a 2 way<br/>
+<br/>
+<b>Altra comune è Tree-root.</b><br/>
+Si crea automaticamente quando un tree viene aggiunto<br/>
+ad una root di una foresta.<br/>
+Anche questa è una Trust transitiva a 2 way<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<b>Altro tipo di Trust è un Trust Shortcut.</b><br/>
+Sono usate per ridurre i tempi di accesso in scenario di Trusts complicati.<br/>
+Può essere one-way o two-way<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<b>Ultimo tipo di trust abbiamo l'External Trust.</b><br/>
+E' un tipo di trust tra 2 domini di due foreste separate,<br/>
+dove le 2 foreste non hanno nessun tipo di trust tra di loro.<br/>
+NON E' transitiva.<br/>
+Può essere one-way o two-way.<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<b>Trust molto conosciuto è il Forest Trust.</b><br/>
+E' un tipo di Trust tra root di foreste.<br/>
+Non può essere esteso ad una 3a foresta (niente trust implicita)<br/>
+Può essere transitiva o intransitiva, one-way o two-way.<br/>
+<br/>
+<b>Ad esempio, nell'immagine:<br/>
+Non è detto che la 1 foresta abbia una Trust relationship con la 3!<br/>
+</b><img src="1 7.png" /><b><br/>
+</b><b></b><hr/><hr/><b></b><b><br/>
+Ottieni tutte le Domain Trust per il dominio corrente:<br/>
+</b><img src="1 8.png" /><br/>
+<img src="1 9.png" /><br/>
+<br/>
+Per ADModule, puo inserire "*" nel filtro per ottenere tutto:<br/>
+<img src="1 10.png" /><br/>
+<hr/><hr/><br/>
+Ottieni dei dettagli riguardo la foresta corrente:<br/>
+<img src="1 11.png" /><br/>
+<img src="1 13.png" /><br/>
+<br/>
+<br/>
+Ottieni i domini della foresta corrente:<br/>
+<img src="1 12.png" /><br/>
+<br/>
+11:50</body></html>
