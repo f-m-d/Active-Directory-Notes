@@ -27,8 +27,8 @@ One-way trust:<br/>
 </b>Gli utenti possono accedere ad una risorsa su un domino o foresta,<br/>
 ma non viceversa!<br/>
 <br/>
-<i><b>Ricorda bene: in questo caso la direzione di trust è opposta<br/>
-</b></i><i><b>alla direzione di accesso alle risorse!</b></i><br/>
+<b><i>Ricorda bene: in questo caso la direzione di trust è opposta<br/>
+</i></b><b><i>alla direzione di accesso alle risorse!</i></b><br/>
 <img src="1.png" /><br/>
 <br/>
 <br/>
@@ -87,7 +87,7 @@ Può essere transitiva o intransitiva, one-way o two-way.<br/>
 <b>Ad esempio, nell'immagine:<br/>
 Non è detto che la 1 foresta abbia una Trust relationship con la 3!<br/>
 </b><img src="1 7.png" /><b><br/>
-</b><b></b><hr/><hr/><b></b><b><br/>
+</b><hr/><hr/><b><br/>
 Ottieni tutte le Domain Trust per il dominio corrente:<br/>
 </b><img src="1 8.png" /><br/>
 <img src="1 9.png" /><br/>
@@ -98,9 +98,87 @@ Per ADModule, puo inserire "*" nel filtro per ottenere tutto:<br/>
 Ottieni dei dettagli riguardo la foresta corrente:<br/>
 <img src="1 11.png" /><br/>
 <img src="1 13.png" /><br/>
+<img src="1 14.png" /><br/>
+<br/>
 <br/>
 <br/>
 Ottieni i domini della foresta corrente:<br/>
 <img src="1 12.png" /><br/>
+<img src="1 15.png" /><br/>
 <br/>
-11:50</body></html>
+<hr/><hr/><br/>
+Forest Mapping<br/>
+<br/>
+<br/>
+Cosa sono i Global Catalog?<br/>
+E' un servizio offerto dai Domain Controller, i quali permettono di mostrare<br/>
+informazioni su tutti gli oggetti della foresta,<br/>
+a prescindere se l'oggetto appartenga al domini del Domain Controller<br/>
+<a href="https://stealthbits.com/blog/what-is-a-global-catalog-server/">https://stealthbits.com/blog/what-is-a-global-catalog-server/</a><br/>
+<br/>
+<br/>
+<br/>
+Ottieni tutti i cataloghi globali per la foresta corrente:<br/>
+<img src="1 16.png" /><br/>
+<br/>
+<br/>
+Mappa tutte le Trust di una foresta:<br/>
+<img src="1 17.png" /><br/>
+<hr/><hr/><ul><li style="list-style-type: none"><b><span style="font-size: 31pt"><div style="text-align: center">User Hunting</div></span></b></li>
+</ul>
+<br/>
+<br/>
+Trova le macchine nel dominio corrente, dove l'utente corrente ha privilegi da Local Admin.<br/>
+<br/>
+Questo comando fa una query sul DC del dominio corrente/provvisto,<br/>
+chiedendo una lista di computers (<b>Get-NetComputers</b>)<br/>
+ed invoca su ogni macchina in modo multithreaded<br/>
+<b>Invoke-CheckLocalAdminAccess</b>&nbsp;su ogni macchina<br/>
+<br/>
+NB: E' decisamente più noisy di altri tipi di enumerazione, quindi fai attenzione!<br/>
+<img src="1 18.png" /><br/>
+<br/>
+<img src="1 19.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Quest'azione può essere effettuata anche con WMI e PowerShell remoting.<br/>
+Molto utile in caso porte, come RPC ed SMB, sfruttate da <b>Find-LocalAdminAccess<br/>
+</b>sono bloccate<br/>
+<a href="https://github.com/gangstanthony/PowerShell/blob/master/Get-LocalAdmin.ps1">https://github.com/gangstanthony/PowerShell/blob/master/Get-LocalAdmin.ps1<br/>
+<br/>
+</a>Basta passargli una lista di computer e controllerà gli amministratori della macchina<br/>
+<img src="1 20.png" /><br/>
+<br/>
+<img src="1 25.png" /><br/>
+<br/>
+26:28<br/>
+<br/>
+Trova tutti gli admin locali per le macchine del dominio<br/>
+(necessita dei permessi di amministratore sulle altre macchine non-DC)<br/>
+<br/>
+Questo comando fa una query sul DC del dominio corrente/provvisto,<br/>
+chiedendo una lista di computers (<b>Get-NetComputer</b>)<br/>
+ed invoca su ogni macchina in modo multithreaded<br/>
+<b>Get-NetLocalGroup</b>&nbsp;su ogni macchina<br/>
+<img src="1 21.png" /><br/>
+<br/>
+<img src="1 22.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Trova computers dove il Domain Admin (o un utente/gruppo) ha una sessione:<br/>
+Comodo per trovare sessioni e login dove abbiamo token admin di login o sessione<br/>
+<img src="1 23.png" /><br/>
+<br/>
+Per confermare l'accesso admin:<br/>
+<img src="1 24.png" /><br/>
+<br/>
+<br/>
+<br/>
+Questa Invoke fa cosi:<br/>
+Interroga il DC del dominio corrente o specificato, per un membro<br/>
+di un gruppo specificato (di default: Domain Admins) usano <b>Get-NetGroupMembers</b>,<br/>
+ottiene una lista di computers con <b>Get-NetComputer,<br/>
+</b>e la lista di sessioni e logged sugli utenti scelti, usando (<b>Get-NetSession</b>&nbsp;e <b>Get-NetLoggedon</b>) </body></html>
