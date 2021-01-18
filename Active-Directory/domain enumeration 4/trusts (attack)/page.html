@@ -27,8 +27,8 @@ One-way trust:<br/>
 </b>Gli utenti possono accedere ad una risorsa su un domino o foresta,<br/>
 ma non viceversa!<br/>
 <br/>
-<b><i>Ricorda bene: in questo caso la direzione di trust è opposta<br/>
-</i></b><b><i>alla direzione di accesso alle risorse!</i></b><br/>
+<i><b>Ricorda bene: in questo caso la direzione di trust è opposta<br/>
+</b></i><i><b>alla direzione di accesso alle risorse!</b></i><br/>
 <img src="1.png" /><br/>
 <br/>
 <br/>
@@ -124,7 +124,7 @@ Ottieni tutti i cataloghi globali per la foresta corrente:<br/>
 <br/>
 Mappa tutte le Trust di una foresta:<br/>
 <img src="1 17.png" /><br/>
-<hr/><hr/><ul><li style="list-style-type: none"><b><span style="font-size: 31pt"><div style="text-align: center">User Hunting</div></span></b></li>
+<hr/><hr/><ul><li style="list-style-type: none"><div style="text-align: center"><span style="font-size: 31pt"><b>User Hunting</b></span></div></li>
 </ul>
 <br/>
 <br/>
@@ -181,4 +181,22 @@ Questa Invoke fa cosi:<br/>
 Interroga il DC del dominio corrente o specificato, per un membro<br/>
 di un gruppo specificato (di default: Domain Admins) usano <b>Get-NetGroupMembers</b>,<br/>
 ottiene una lista di computers con <b>Get-NetComputer,<br/>
-</b>e la lista di sessioni e logged sugli utenti scelti, usando (<b>Get-NetSession</b>&nbsp;e <b>Get-NetLoggedon</b>) </body></html>
+</b>e la lista di sessioni e logged sugli utenti scelti, usando (<b>Get-NetSession</b>&nbsp;e <b>Get-NetLoggedon</b>) <br/>
+<br/>
+<img src="1 26.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Trova computers dove Domain Admin che è loggato:<br/>
+<br/>
+Questo comando chiede al DC di un determinato gruppo (in questo caso i Domain Admin)<br/>
+tramite il comando Get-NetGroupMember,<br/>
+ottiene una lista di server ad alto traffico (DC, FILE SERVERS E FILE SERVERS DISTRIBUITI),<br/>
+in modo da generare meno traffico sulla rete,<br/>
+e lista la sessione di tutti gli utenti loggati (<b>Get-NetSession</b>&nbsp;e <b>Get-NetLoggedon</b>) per ogni macchina<br/>
+<img src="1 27.png" /><br/>
+<br/>
+</body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trust (Defend)</title>
+</head><body><b><span style="font-size: 31pt"><div style="text-align: center">How to defend by the User Hunting Techniques</div><br/>
+</span></b><br/>
+<br/>
+<br/>
+Un'opzione per difendersi è l'<b>hardening</b>&nbsp;sul DC o altre macchine,<br/>
+in modo da contenere le informazioni necessarie solamente<br/>
+<br/>
+<br/>
+Uno scritp utile è <b><u>Netcease</u></b>.<br/>
+ATTENZIONE: TESTA PRIMA DI METTERE IN PRODUZIONE I PERMESSI, MAGARI SU UNA COPIA DI MACCHINA!<br/>
+Esso cambia i permessi del metodo <b>NetSessionEnum</b>,<br/>
+rimuovendo i permessi dal gruppo degli <b>Autenticated Users</b><br/>
+<br/>
+Questo permette di bloccare la maggior parte di <b>session enumeration</b><br/>
+e le capabilities per l'<b>user hunting</b>:<br/>
+<a href="https://github.com/p0w3rsh3ll/NetCease">https://github.com/p0w3rsh3ll/NetCease</a><br/>
+<a href="https://gallery.technet.microsoft.com/Net-Cease-Blocking-Net-1e8dcb5b">https://gallery.technet.microsoft.com/Net-Cease-Blocking-Net-1e8dcb5b</a><br/>
+<br/>
+<br/>
+<br/>
+Altro strumento utili, dello stesso autore è <b>SAMRi10</b>.<br/>
+Permette di effettuare hardening su Windows 10 e Windows Server 2016,<br/>
+contro l'enumerazione che sfrutta SAMR protocol (come net.exe)<br/>
+<a href="https://gallery.technet.microsoft.com/SAMRi10-Hardening-Remote-48d94b5b">https://gallery.technet.microsoft.com/SAMRi10-Hardening-Remote-48d94b5b</a>&nbsp;<br/>
+<br/>
+<br/>
+Ecco un esempio di uso di NetCease:<br/>
+Cambia i permessi per evitare l'enumerazione!<br/>
+<img src="1.png" /><br/>
+<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Nel caso tu abbia bisogno di ritornare ai permessi vecchi, prima di NetCease,<br/>
+puoi usare l'opzione<b>&nbsp;-Revert:</b><br/>
+<img src="1 3.png" /></body></html>
