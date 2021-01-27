@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Features Abuse</title>
+</head><body><div style="text-align: center"><span style="font-family: Yu Gothic UI"><b><span style="font-size: 31pt">Features Abuse</span></b><br/>
+</span></div><span style="font-family: Yu Gothic UI"><br/>
+<span style="font-size: 21pt"><br/>
+Quello che abbiamo fatto finora è stato abusare delle features di sistema.<br/>
+Le patch per queste cose esistono, ma non fanno parte dei security team!<br/>
+Le devono patchare Windows, per dire.<br/>
+<br/>
+Un buon approccio è di sfruttare le applicazioni enterprise, quali non<br/>
+sono state buildate pensando alla sicurezza.<br/>
+<br/>
+Alcune applicazioni hanno bisogno di privilegi <b>Administrator</b><br/>
+oppure <b>SYSTEM</b>&nbsp;e possono essere un ottimo vettore!<br/>
+<br/>
+<b>Esempio: Jenkins con la shell del suo tipo!<br/>
+</b></span></span><img src="1.png" /><span style="font-family: Yu Gothic UI"><span style="font-size: 21pt"><b><br/>
+</b></span></span><span style="font-family: Yu Gothic UI"><span style="font-size: 21pt"><b><br/>
+</b></span></span><img src="1 2.png" /><b><span style="font-size: 21pt"><span style="font-family: Yu Gothic UI"><br/>
+</span></span></b><img src="2.png" /><span style="font-family: Yu Gothic UI"><span style="font-size: 21pt"><b><br/>
+</b></span></span><br/>
+<br/>
+<br/>
+<b>Nel caso tu non abbia permessi da Admin ma puoi modificare gli step<br/>
+nelal build configuration:<br/>
+</b><b>Aggiungi "Execute Windows Batch Command"</b><br/>
+powershell -c COMMAND<br/>
+<br/>
+Per fare questo devi loggare ed aver a che fare con un processo:<br/>
+<img src="1 3.png" /><br/>
+<img src="2 2.png" /><br/>
+<img src="3.png" /><br/>
+<br/>
+<img src="4.png" /><br/>
+<br/>
+<img src="1 4.png" /><br/>
+<br/>
+Builda il progetto e vedi il console output, in questo caso con un altro comando:<br/>
+<img src="1 5.png" /><br/>
+</body></html>

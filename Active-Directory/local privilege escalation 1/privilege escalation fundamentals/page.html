@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Privilege Escalation fundamentals</title>
+</head><body>Privilege Escalation<br/>
+<br/>
+<br/>
+<b>Vi sono diversi modi per scalare i privilegi in una Windows box:</b><ul><li>Patches mancanti</li>
+<li>Deploy automatico e le password di AutoLogon in chiaro</li>
+<li>Registro AlwaysInstallElevated (Qualsiasi utente puà runnare un MSI come SYSTEM)</li>
+<li>Misconfiguration di servizi</li>
+<li>DLL Hijacking etc.</li>
+</ul>
+<br/>
+<br/>
+&nbsp;Strumenti utili per questo ambito:<ul><li>PowerUp:&#09; https://github.com/PowerShellMafia/PowerSploit/tree/master/Privesc</li>
+<li>BeRoot: &#09;&#09; https://github.com/AlessandroZ/BeRoot</li>
+<li>Privesc: &#09;&#09; https://github.com/enjoiz/Privesc</li>
+</ul>
+<hr/><hr/><br/>
+PoweUp commands<br/>
+<br/>
+Importa lo script con la bypass execution policy.<br/>
+<br/>
+<br/>
+<b>Cerca servizi con Path senza doppi apici e con spazi nel loro nome:<br/>
+Ad esempio: Se vi è una path C:/Super Mario/<br/>
+puoi creare un executable C:/Super.exe!<br/>
+<br/>
+Di solito in C:\, Programs etc. richiedono permessi da Admin,<br/>
+quindi cerca path nelle quali tu abbia permessi!<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<br/>
+Cerca servizi dove l'utente corrente può scrivere alla sua path binaria,<br/>
+oppure cambiare gli arguments della binary.<br/>
+<br/>
+Ad esempio: possiamo cambiare la path di dove si esegue chrome.exe<br/>
+da "Program/.../chrome.exe" a "Dove/Voglio/.../executable_che_voglio.exe"<br/>
+NB: Nota se il servizio è ravviabile, altrimento poco serve!<br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Cerca i servizi dove l'utente può modificare la configurazione corrente:<br/>
+</b><img src="3.png" /><br/>
+<hr/><hr/><br/>
+<br/>
+You can call all the Invoke, with:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+</body></html>
