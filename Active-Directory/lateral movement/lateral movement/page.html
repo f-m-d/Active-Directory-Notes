@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Lateral Movement</title>
+</head><body>Lateral Movement<br/>
+<br/>
+<br/>
+La fase di Lateral Movement, assieme a quella di<br/>
+"Domain Admin Privs" e "Cross Trusts Attacks"<br/>
+<br/>
+E' una fase di inizio ciclo, dove cerchiamo di spostarci in modo laterale,<br/>
+ottenere altre macchine ed utenti, per infine sfruttare le trust e spostarsi.<br/>
+In questo modo il ciclo viene effettuato fin quando è possibile.<br/>
+<hr/><hr/><br/>
+<b>Powershell Remoting</b><br/>
+<br/>
+https://docs.microsoft.com/en-us/powershell/scripting/learn/remoting/running-remote-commands?view=powershell-7.1<br/>
+<br/>
+Puoi pensarlo come un protocollo per l'amministrazione remota.<br/>
+E' come <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">psexec</a>&nbsp;(usato per l'amministrazione remota) ma su steroidi.<br/>
+<br/>
+Powershell Remoting Wsta prendendo sempre più piede.<br/>
+E' abilitato di base su Windows Server 2012 in su.<br/>
+<br/>
+Per farlo, bisogna abilitare il remoting (Enable-PSRemoting)<br/>
+su una Windows Machine da desktop.<br/>
+Servono privilegi da admin per farlo!<br/>
+<br/>
+Ottieni una shell elevata sul sistema remoto,<br/>
+se vengono usate credenziali da Admin per l'autenticazione.<br/>
+(per default setting succede questo)<br/>
+<br/>
+Altro punto di nota è che genera traffico encrypted, perché è encrypted<br/>
+<hr/><hr/><br/>
+<br/>
+Modi di Poweshell Remoting<br/>
+<br/>
+<br/>
+Esistono due modi: One-to-One e One-to-Many.<br/>
+<br/>
+<b>Il Metodo One-to-One è, tramite PSSession è:</b><ul><li>Interattivo</li>
+<li>Runna in un nuovo processo (wsmprovhost)</li>
+<li>E' stateful</li>
+</ul>
+<br/>
+<b>Cmdlets utli:</b><ul><li>New-PSSession</li>
+<li>Enter-PSSession</li>
+</ul>
+<br/>
+<br/>
+<b>Ricorda: Dobbiamo avere privilegi da Admin su quella macchina che accediamo!</b><br/>
+<img src="1.png" /><br/>
+<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Da come è possibile notare, le connessioni sono stateful:<br/>
+Esempio: salvo una variabile, esco, rientro ed eseguo la variabile.<br/>
+Se non chiudo la connessione ma semplicemente ci esco, rimane stateful.<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Questi comandi non possono caricare script o funzioni:<br/>
+</b><b>Possiamo farlo prima creando una sessione e poi usando Invoke-Command sulla sessione.</b><br/>
+<img src="1 14.png" /><br/>
+<br/>
+<br/>
+<br/>
+<b>Il metodo One-To-Many:</b><ul><li>E' conosciuto anche come "Fan-out remoting"</li>
+<li>NON è interattivo</li>
+<li>Esegue i comandi in parallelo</li>
+</ul>
+<br/>
+<b><br/>
+</b><b>Cmdlets utili:</b><ul><li>Invoke-Command</li>
+</ul>
+<br/>
+<b>Per il cmdlet <u>Invoke-Command</u>, permette di eseguire anche scripts.<br/>
+</b><b>Può eseguire comandi o script su:</b><ul><li>Computer remoti multipli</li>
+<li>Su sessioni disconnesse (v3)</li>
+<li>Come job in background</li>
+<li>Etc.</li>
+</ul>
+<br/>
+E' uno dei modi migliori per passare hash, usare credenziali<br/>
+oppure eseguire comandi su computer remoti.<br/>
+<br/>
+Per passare un username e password, si può usare l'opzione <b>-Credential</b><br/>
+<br/>
+<br/>
+Ecco un esempio per un singolo Computername:<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Puoi usare questo comando per eseguire <b>comandi</b>&nbsp;oppure <b>scriptblocks</b>:<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<b>Puoi usare questo comando per eseguire script da file:</b><br/>
+<img src="2.png" /><br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+Qui indica che nel contesto e nella sessione, usa un ConstrainedLanguage,<br/>
+mentre noi ne utilizziamo uno diverso:<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+Il punto è che nella ConstrainedLanguage mode non considera safe alcuni Cmdlets e Type,<br/>
+Non possiamo usare classi .NET ed altri elementi.<br/>
+<br/>
+Ci permette di utilizzare solamente ciò che è disponibile su quella macchina come Cmdlets.<br/>
+<hr/><hr/><br/>
+<br/>
+Poweshell remoting è molto forte:<br/>
+permette di runnare funzioni locali su sistemi remoti.<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ad esempio, se creiamo una semplice funzione:<br/>
+<img src="1 9.png" /><br/>
+<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+Ora proviamo a caricarla su un altro host:<br/>
+Come si nota funziona!<br/>
+<img src="1 12.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Questo comando è utile nel caso la funzione richieda degli arguments:<br/>
+<img src="1 13.png" /><br/>
+<hr/><hr/><br/>
+Per rendere i comandi di Invoke-Command "stateful",<br/>
+possiamo creare delle sessioni per ogni macchina<br/>
+ed inviare i comandi:<br/>
+<br/>
+<img src="1 15.png" /></body></html>

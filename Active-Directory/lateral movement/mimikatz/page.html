@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Mimikatz</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Mimikatz</span></div></b><br/>
+<br/>
+<br/>
+<br/>
+Possiamo usare Mimikatz per dumpare credenziali,<br/>
+tickets ed altro!<br/>
+<br/>
+E' possibile usare Mimikatz da Powershell,<br/>
+senza droppare mimikatz.exe sul disco<br/>
+<br/>
+E' molto usato per passare e replay di hash e tickets,<br/>
+oltre a tanti altri attacchi per Active Directory.<br/>
+<br/>
+Usando il codice di <b>ReflectivePEInjection</b>,<br/>
+mimikatz è caricato in modo riflesso nella memoria.<br/>
+Tutte le funzioni di mimikatz possono essere usate da questo script.<br/>
+<br/>
+Lo script necessita di privilegi di Admin<br/>
+per dumpare le credenziali sulla macchina locale.<br/>
+Altri attacchi invece necessitano di altri privilegi.<br/>
+<br/>
+<a href="https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Invoke-Mimikatz.ps1">https://github.com/PowerShellMafia/PowerSploit/blob/master/Exfiltration/Invoke-Mimikatz.ps1<br/>
+</a><hr/><hr/><br/>
+<br/>
+<b>Una cosa degna di nota di Invoke-Mimikatz:</b><br/>
+utilizza il cmdlet <b>Invoke-Command </b>per i seguenti comandi.<br/>
+Per questo, necessita privilegi da Admin sulle macchine scelte.<br/>
+<br/>
+Dumpa le credenziali sulla macchina locale:<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+Dumpa le credenziali su macchine remote:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+"Over pass the hash" genera token dagli hash.<br/>
+<br/>
+L'attacco classico <b>"Pass the hash" </b>permette di usare l'hash NTLM<br/>
+per permetterci di autenticarci a server/macchine che supportano<br/>
+l'autenticazione tramite hash NTLM della password.<br/>
+Anche le macchine locali accettano hash di tipo NTLM.<br/>
+<br/>
+<b>"Over pass the hash"</b>&nbsp;invece crea dei Ticket Kerberos validi,<br/>
+a partire dall'hash NTLM. <br/>
+<br/>
+<img src="1 3.png" /><br/>
+</body></html>
