@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Skeleton Key</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Skeleton Key</span></div></b><br/>
+<br/>
+La Skeleton Key è una tecnica usata per la Domain Persistence.<br/>
+Viene usata per patchare il DC con permessi da Domain Admin<br/>
+(precisamente, il processo lsass di Local Security Authority Subsistem Service)<br/>
+in modo da permettere l'accesso come qualsiasi utente,<br/>
+usando un'unica password.<br/>
+<br/>
+Attacco scoperto da Dell Securework,<br/>
+fu usato in un malware chiamato Skeleton Key.<br/>
+<br/>
+Questi metodi attualmente conosciuti NON sono persistenti<br/>
+attraverso i reboot.<br/>
+<hr/><hr/><br/>
+Injecta una skeleton key (la password sarà "mimikatz")<br/>
+su un DC a scelta. Necessita di permessi da Domain Admin.<br/>
+<img src="1.png" /><br/>
+<br/>
+Una volta fatto ciò, puoi usare il comando Enter-PSession per accedere<br/>
+alla macchina con la Skeleton Key.<br/>
+Basta provvedere un username valido!<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<b>NB: Puoi accedere ad altre macchine, a patto che si autenticano<br/>
+con il DC patchato dalla Skeleton Key e che il DC non sia stato rebootato!<br/>
+<br/>
+<br/>
+<br/>
+Nel caso lsass fosse patchato di sicurezza:<br/>
+</b><img src="1 3.png" /></body></html>

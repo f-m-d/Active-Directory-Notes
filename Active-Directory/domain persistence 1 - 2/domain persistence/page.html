@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Domain Persistence</title>
+</head><body><b>Domain Persistence</b><br/>
+<br/>
+Vi è molto di più del Domain Admin nel mondo dell'Active Directory.<br/>
+Una volta che siamo Domain Admin, possiamo effettuare nuove tattiche:<br/>
+persistenza, scalo ad Enterprise Admin (del DC) ed attacchi cross-trust<br/>
+<br/>
+Cerchiamo di vedere attacchi sul dominio, tra domini, foreste<br/>
+e vari attacchi tramite Kerberos.<br/>
+<hr/><hr/><br/>
+<b>Servizio: Kerberos</b><br/>
+<br/>
+Kerberos è alla base dell'autenticazione Windows AD.<br/>
+<br/>
+E' stato molto attaccato e fixato nel tempo,<br/>
+quindi col tempo ha sviluppato tante meccaniche e fix.<br/>
+<br/>
+Ecco come funziona Kerberos:<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Altre informazioni riguardo Kerberos:<ul><li>Si utilizza l'hash NTLM della password per la cifratura RC4 di Kerberos</li>
+<li>Il Logon Ticket (TGT) provvede l'autenticazione utente verso il DC (Domain Controller)</li>
+<li>La policy di Kerberos è controllata SOLO QUANDO crea un TGT</li>
+<li>Il DC (Domain Controller) valida un account utente solo quando il TGT è maggiore di 20 minuti</li>
+<li>La validazione PAC (passo tra 4 e 5) dei Ticket Service (TGS) è spesse volte opzionale e rara:</li>
+<li style="list-style-type: none"><ul><li>PAC sta per "Privilege Access Certificate"</li>
+<li>Il <a href="https://en.wikipedia.org/wiki/Local_Security_Authority_Subsystem_Service#:~:text=Local%20Security%20Authority%20Subsystem%20Service%20(LSASS)%20is%20a%20process%20in,changes%2C%20and%20creates%20access%20tokens."><b>LSASS</b></a><b>&nbsp;(Local Security Authority Sistem Service)</b>&nbsp;manda una <b>PAC validation</b>&nbsp;al servizio <b>netlogon del DC (NRPC)</b></li>
+<li>Se è avviato come servizio, la PAC Validation è opzionale (disabled)</li>
+<li>Se il servizio è avviato come System, performa una <b>server signature verification </b>sulla PAC (computer account long-term key) </li>
+</ul>
+</li>
+</ul>
+<br/>
+<hr/><hr/></body></html>
