@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Directory Services Restore Mode</title>
+</head><body><b>Directory Service Restore Mode</b><br/>
+<br/>
+<br/>
+DSMR (Directory Service Restore Mode) <br/>
+<br/>
+Su ogni DC esiste un utente chiamato "Administrator",<br/>
+<b>un amministratore locale</b>,<br/>
+la cui password è la DSRM password.<br/>
+<br/>
+La DSMR password (SafeModePassword) quando<br/>
+un server è promosso a Domain Controller,<br/>
+ed è raramente cambiata.<br/>
+<br/>
+Dopo aver alterato una configurazione di un DC,<br/>
+è possibile passare l'hash NTLM di questo utente<br/>
+per accedere al DC.<br/>
+<br/>
+<img src="1.png" /><br/>
+<hr/><hr/><br/>
+<br/>
+Dumpa la DSMR password (richiede permessi da Administrator)<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Se compariamo con questo secondo comando:<br/>
+ci rendiamo conto che il primo comando da la DSMR password,<br/>
+il secondo è l'hash dell'altro admin.<br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Essendo che è l'Admin locale del DC,<br/>
+possiamo fare un "Pass the Hash" attack<br/>
+e passare l'hash per autenticarci.<br/>
+<br/>
+Per poterlo fare, dobbiamo prima cambiare una proprietà<br/>
+chiamata "<b>DsrmAdminLogonBehaviour</b>",<br/>
+prima di usare l'hash.<br/>
+In questo modo patchiamo il DC per login futuri.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+(Nel caso il <b>New-ItemProperty</b>&nbsp;non funziona perché già presente la proprietà,<br/>
+possiamo cambiarla con <b>Set-ItemProperty</b>)<br/>
+<img src="2 2.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Poi, tipo ad esempio quando vogliamo,<br/>
+possiamo ritornare quando vogliamo con questo comando,<br/>
+magari facendo un LS arrogante.<br/>
+<br/>
+NB: Qui usiamo come domain il Domain Controller (dcorp-dc)<br/>
+<img src="1 7.png" /></body></html>

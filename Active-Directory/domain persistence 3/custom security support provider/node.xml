@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Custom Security Support Provider</string>
+  <key>nodeid</key><string>4a17bf45-2a19-4999-a747-fa49fc9225bc</string>
+  <key>modified_time</key><integer>1612552388</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1612550135</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>

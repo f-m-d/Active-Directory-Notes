@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Custom Security Support Provider</title>
+</head><body><b>Custom SSP<br/>
+</b><br/>
+<br/>
+Security Support Provider (SSP) è una DLL<br/>
+che provvede dei modi per un'applicazione<br/>
+di ottenere una connessione autenticata.<br/>
+<br/>
+Ecco alcuni package SSP della Microsoft:<ul><li>NTLM</li>
+<li>Kerberos</li>
+<li>Wdigest</li>
+<li>CredSSP</li>
+</ul>
+<br/>
+<br/>
+Mimikatz provvede una SSP custom (mimilib.dll).<br/>
+Questa SSP logga LogOn locali,<br/>
+service account e password in chiaro<br/>
+degli account della macchina scelta.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Abbiamo 2 modi per ottenere lo stesso obiettivo:<br/>
+<br/>
+1) Droppa mimilib.dll in system32 ed aggiungi<br/>
+mimilib nella path <b>HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Security</b><br/>
+dove sono posti i security packages<br/>
+<img src="1.png" /><br/>
+<br/>
+2) Usa mimikatz. per injectare il lsass (Local Security Authentication Server)<br/>
+<b>ATTENZIONE: Non è stabile su Windows Server 2016!!</b><br/>
+<img src="2.png" /><br/>
+<br/>
+<br/>
+<br/>
+Inoltre, da ricordare:<br/>
+I LogOn sul server sono salvati in un file speciale:<br/>
+<img src="1 2.png" width="950" height="406" /></body></html>
