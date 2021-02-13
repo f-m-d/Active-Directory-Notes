@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Persistence with ACL - AdminSDHolder</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">AdminSDHolder</span></div></b><br/>
+<br/>
+Risiede in un System Container di un dominio<br/>
+ed è usato per controllare i permessi, usando ACL,<br/>
+per un certo gruppo built-in privilegiato<br/>
+(chiamati <b>Protected Groups</b>)<br/>
+<br/>
+Il servizio <b>Security Descriptor Propagator</b>&nbsp;(<b>SDPROP</b>)<br/>
+viene eseguito ogni ora e compara le ACL<br/>
+dei Protected Groups e dei suoi membri con le ACL<br/>
+di AdminSDHolder: tutte le differenze sono sovrascritte<br/>
+nell'oggetto ACL <br/>
+<br/>
+<img src="1.png" /><br/>
+<br/>
+<br/>
+<br/>
+Ecco i Protected Groups:<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Ecco una lista dei gruppi e di cosa possono abusare<br/>
+(questi gruppi possono loggare in modo locale sul DC)<br/>
+<img src="1 3.png" /><br/>
+<hr/><hr/><br/>
+Supponi che qualcuno abbia avuto accesso al Dominio,<br/>
+e che abbia accesso da Admin.<br/>
+<br/>
+Per bloccare magari un potenziale attaccante che abbia<br/>
+creato un account con più permessi del necessario,<br/>
+<b>il Security Descriptor Propagator</b>&nbsp;(<b>SDPROP</b>)<br/>
+si propaga e riassegna i permessi dei gruppi originali<br/>
+agli utenti.<br/>
+<br/>
+<br/>
+<br/>
+Se invochiamo Invoke-SDPropagator sul Domain Controller,<br/>
+sovrascriviamo la potenziale ACL compromessa<br/>
+con una nostra ACL dei Protected Groups.<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+<br/>
+Questo vuol dire che se modifichiamo la<br/>
+ACL di AdminSDHolder, possiamo creare<br/>
+ACL nei gruppi protetti a nostra scelta!<br/>
+<hr/><hr/><br/>
+Ok, ora diamo un occhiata<br/>
+<b>su come effettuare questa operazione da remoto!<br/>
+<br/>
+Per farlo, possiamo usare i 2 nostri strumenti di base:<ul><li>PowerView</li>
+<li>ADModule</li>
+</ul>
+<br/>
+<br/>
+</b>Ecco come aggiungere un utente da pieni permessi<br/>
+(FullControl) sull'AdminSDHolder!<b><br/>
+</b><b>(I comandi devono essere eseguiti da Domain Admin!)<br/>
+Poweview:<br/>
+<img src="1 5.png" /><br/>
+<br/>
+ADModule:<br/>
+<img src="2.png" /><br/>
+<img src="2 2.png" /><br/>
+</b><br/>
+Ora è possibile caricare il modulo per effettuare il <b>Security Descriptor Propagator (SDPROP)</b><br/>
+in una sessione sul dominio:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Ecco altri permessi interessanti (ResetPassword, WriteMembers)<br/>
+per un utente nel AdminSDHolder<br/>
+<br/>
+Powerview:<br/>
+<img src="1 7.png" /><br/>
+ADModule:<br/>
+<img src="2 3.png" /><br/>
+<br/>
+<span style="font-size: 14pt"><br/>
+Ecco come runnare a mano (visto pure in comandi precedenti)<br/>
+<span style="font-family: Yu Gothic UI"><b>il Security Descriptor Propagator (SDPROP)<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<img src="2 4.png" /><br/>
+<br/>
+</b></span></span><br/>
+<br/>
+Controllare i permessi dei Domain Admins.<br/>
+Utile per vedere se i permessi sono stati cambiati correttamente!<br/>
+<br/>
+(Powerview, da utente normale)<br/>
+<img src="1 9.png" /><i><br/>
+</i>ADModule:<br/>
+<img src="2 5.png" /><br/>
+<br/>
+<img src="1 10.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Abusare il FullControl di un utente:<br/>
+Aggiungiamo un utente al gruppo dei Domain Admins.<br/>
+<br/>
+ATTENZIONE: Non è raccomandato perché è noisy,<br/>
+ma è comunque possibile!<br/>
+<br/>
+Powerview:<br/>
+<img src="1 11.png" /><br/>
+ADModule:<br/>
+<img src="2 6.png" /><br/>
+<br/>
+<img src="1 12.png" /><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Possiamo abusare anche dell'opzione<br/>
+di ResetPassword:<br/>
+Possiamo perfino resettare una password<br/>
+ad un Domain Admin!<br/>
+<br/>
+Poweview:<br/>
+<img src="1 13.png" /><br/>
+ADModule:<br/>
+<img src="2 7.png" /></body></html>

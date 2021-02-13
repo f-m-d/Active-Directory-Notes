@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Persistence with ACL - AdminSDHolder</string>
+  <key>nodeid</key><string>0a869fb7-49bd-433a-8a27-24a877efb0f1</string>
+  <key>modified_time</key><integer>1613247287</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1613242484</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
