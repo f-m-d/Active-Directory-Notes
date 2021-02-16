@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Security Descriptors</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Security Descriptors</span></div></b><br/>
+<br/>
+E' possibile modificare i Security Descriptors<br/>
+(informazioni di sicurezza come Owner, Primary Group, DACL e SACL)<br/>
+di metodi ad <b>accesso multiplo remoto (securable objects)<br/>
+</b>per permettere l'accesso ad utenti non-admin.<br/>
+<br/>
+Sono necessari privilegi da <b>Administrator</b>&nbsp;per fare ciò.<br/>
+<br/>
+Questo permette di creare una backdoor molto utile sul sistema.<br/>
+<br/>
+<hr/><hr/><br/>
+<b>Security Descriptor Definition Language</b><br/>
+<br/>
+<br/>
+Il <b>Security Descriptor Definition Language (SDDL)<br/>
+</b>permette di descrivere il formato dove<br/>
+viene scritto un Security Descriptor.<br/>
+<br/>
+SDDL utilizza stringhe <b>ACE</b>&nbsp;per DACL e SACL:<br/>
+<b><i>ace_type; ace_flags; rights; object_guid; inherit_object_guid; account_sid<br/>
+<a href="https://docs.microsoft.com/it-it/windows/win32/secauthz/ace-strings?redirectedfrom=MSDN">https://docs.microsoft.com/it-it/windows/win32/secauthz/ace-strings?redirectedfrom=MSDN</a><br/>
+</i></b><br/>
+<b>Ecco l'ACE per gli Amministratori built-in per i WMI Spaces:</b><br/>
+A;CI;CCDCLCSWRPWPRCWD;;;SID<br/>
+(Per ottenere i pieni permessi su un utente,<br/>
+basta sostituire in SID il SID dell'utente che vogliamo!)<br/>
+<br/>
+5:00</body></html>
