@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Kerberoast</title>
+</head><body><b><div style="text-align: center"><span style="font-size: 31pt">Kerberoast</span></div></b><br/>
+<br/>
+Si tratta di crackare la password di un service account,<br/>
+in modo offline.<br/>
+<br/>
+Il <b>Kerberos Ticket Session (TGS) </b>ha una parte server,<br/>
+cifrata con la password del service account.<br/>
+Questo permette di richiedere un ticket e di fare<br/>
+un <b>password attack offline<br/>
+</b><b><br/>
+</b><b>I Service Account </b>sono spesse volte ignorati,<br/>
+le password vengono cambiare poche volte<br/>
+e a volte hanno perfino accessi privilegiati.<br/>
+<br/>
+Gli hash delle password possono poi essere usati per creare<br/>
+dei <b>Silver Tickets!<br/>
+</b><b><br/>
+</b><img src="1.png" /><br/>
+<hr/><hr/><br/>
+Ecco come trovare i Service Accounts:<br/>
+Da qui possiamo sceglierne uno da targettare,<br/>
+specialmente uno con più privilegi.<br/>
+<br/>
+E.G. CN<b>=krbtgt</b>&nbsp;indica l'utente krbtgt<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<img src="1 3.png" /><br/>
+<br/>
+<br/>
+Una volta scelto l'account da targettare,<br/>
+possiamo richiedere un TGS del servizio scelto:<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+<img src="1 5.png" /><br/>
+<br/>
+Possiamo confermare di avere il ticket usando il comando <b>"klist":</b><br/>
+<img src="2.png" /><br/>
+<br/>
+Infine, possiamo esportare i tickets:<br/>
+<img src="1 7.png" /><br/>
+<br/>
+Ecco quello del nostro servizio scelto:<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<hr/><hr/><br/>
+<br/>
+Se si usa Request-SPNTicket, è possibile usare tools come<br/>
+<b>John The Ripper</b>&nbsp;oppure <b>Hashcat</b>&nbsp;per crackare la password. <br/>
+<br/>
+In alternativa, esistono degli script che permettono<br/>
+ciò:<br/>
+<a href="https://github.com/nidem/kerberoast/blob/master/tgsrepcrack.py">https://github.com/nidem/kerberoast/blob/master/tgsrepcrack.py</a><br/>
+<br/>
+<b>(Perfino questo script suggerisce di usare Hashcat perché è più veloce!!)<br/>
+</b><img src="1 10.png" /><b><br/>
+</b><br/>
+<img src="1 9.png" /><br/>
+<br/>
+<img src="1 11.png" /><br/>
+<br/>
+<br/>
+</body></html>

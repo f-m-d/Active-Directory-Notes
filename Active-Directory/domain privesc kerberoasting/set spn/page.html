@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Set SPN</title>
+</head><body>Set SPN <b>(Service Principal Name).</b><br/>
+<br/>
+<b>https://en.wikipedia.org/wiki/Kerberos_(protocol)<br/>
+<br/>
+</b>Con ababstanza permessi (GenericAll/GenericWrite),<br/>
+un SPN di un utente può essere settato pari a quello che si vuole!<br/>
+(in modo unico nel dominio)<br/>
+<br/>
+In questo modo possiamo richiedere un TGS, senza privilegi speciali.<br/>
+Poi il TGS potrà essere Kerberoasted.<br/>
+<br/>
+<br/>
+<b>Il punto sta che:<br/>
+se un SPN di un utente non è nullo, per il DC Account<br/>
+quell'account è usato come Service Account e puoi richiedere i TGS.<br/>
+</b><b>Non importa se vi sia un servizio vero e proprio che giri.</b><hr/><hr/><br/>
+Ora possiamo cercare utenti con pieni permessi (GenericAll o GenericWrite) sul dominio<br/>
+e richiediamo un TGS a nome loro, per Kerberoastarli offline:<br/>
+<br/>
+<b>(Ricorda di cambiare "supportuser" ovviamente!)</b><br/>
+<img src="1.png" /><br/>
+<br/>
+Con questi comandi, possiamo settare un SPN per un utente e successivamente richiedere un TGS! <img src="1 2.png" /><br/>
+<br/>
+<img src="1 3.png" /><b><br/>
+</b><br/>
+Infine, richiediamo il ticket:<br/>
+<b>NB: cambia l' -ArgumentList con l'SPN che hai definito per un utente!</b><br/>
+<img src="2021-02-19 10_22_41-window.png" /><br/>
+<img src="1 7.png" /><br/>
+<br/>
+<br/>
+Possiamo vedere successivamente il ticket con "klist":<br/>
+<img src="1 4.png" /><br/>
+<br/>
+Infine, possiamo esportare i tickets con Mimikatz:<br/>
+ora abbiamo un ticket TGS con l'hash della persona da crackare!<br/>
+<img src="1 5.png" /><br/>
+<br/>
+Infine, possiamo crackare offline il TGS:<br/>
+Meglio usare hashcat se possibile!<br/>
+<img src="1 6.png" /></body></html>
