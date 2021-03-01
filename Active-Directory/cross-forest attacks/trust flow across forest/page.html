@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trust Flow Across Forest</title>
+</head><body>Trust Flow Across Forest<br/>
+<br/>
+<br/>
+Supponiamo che 2 DC di 2 Forest differenti,<br/>
+abbiano una certa trust.<br/>
+<br/>
+Ora, se voglio accedere ad un servizio disponibile<br/>
+su un altra foresta, il processo è simile al chiedere<br/>
+un TGT/TGS:<br/>
+<br/>
+La differenza sta che una, una volta richiesto e dato un TGT<br/>
+al mio DC, se richiedo un <b>TGS mi da un inter-realm-TGT!!</b>&nbsp;<br/>
+<br/>
+<b>Con questo inter-realm-TGT posso richiedere un TGS<br/>
+</b><b>all'altro DC dell'altra foresta.</b><br/>
+<img src="1.png" /><br/>
+<br/>
+<img src="1 2.png" /><br/>
+<hr/><hr/><br/>
+Per cominciare, otteniamo la trust key per la inter-forest trust:<br/>
+<img src="1 3.png" width="950" height="242" /><br/>
+<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<br/>
+Ora forgiamo un intra-forest TGT:<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<img src="1 7.png" /><br/>
+<br/>
+<img src="1 6.png" /><br/>
+<br/>
+Infine, injectiamo il TGS e controlliamo se l'abbiamo ottenuto con <b>"klist"</b>:<br/>
+<img src="1 8.png" /><br/>
+<br/>
+<br/>
+</body></html>
