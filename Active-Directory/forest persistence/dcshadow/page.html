@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>DCShadow</title>
+</head><body>DCShadow<br/>
+<br/>
+Il servizio DCShadow registra in modo temporaneo<br/>
+un nuovo DC da inserire in un dominio,<br/>
+e lo usa per "pushare" attributi come SIDHistory, SPN etc.,<br/>
+su un specifico oggetto senza lasciare dei change logs<br/>
+per l'oggetto modificato!<br/>
+<br/>
+Il nuovo DC è registrato tramite una modifica<br/>
+del container "Configuration", SPNs di un oggetto Computer esistente<br/>
+e dei servizi RPC<br/>
+<br/>
+Essendo che gli attributi sono cambiati da un "DC",<br/>
+non vi sono directory change logs sul DC attuale,<br/>
+per l'oggetto cambiato<br/>
+<br/>
+Di default, necessiti di privilegi da Domain Admin<br/>
+per poter usare DCShadow<br/>
+<br/>
+NB: Negli esempi, la macchina attaccante deve far parte del root domain<br/>
+<hr/><hr/><br/>
+Possiamo usare Mimikatz per DCShadow.<br/>
+<br/>
+Sono necessarie 2 istanze di Mimikatz:<br/>
+<br/>
+1) Una per startare i servers RPC con privilegi da SYSTEM<br/>
+e per specificare gli attributi da modificare:<br/>
+<img src="1.png" /><br/>
+<br/>
+2) Un secondo con abbastanza privilegi (DA o simili) per "pushare" i valori<br/>
+<img src="1 2.png" /><br/>
+<br/>
+<br/>
+Primo server:<br/>
+<img src="1 4.png" /><br/>
+<br/>
+<img src="1 3.png" /><br/>
+<br/>
+Controllando la descrizione dell'utente "root1User", prima del push:<br/>
+<img src="1 5.png" /><br/>
+<br/>
+<br/>
+Secondo server:<br/>
+Acquisiamo un attimo i privilegi con l'impersonificazione:<br/>
+<img src="1 6.png" /><br/>
+<br/>
+Pushiamo la configurazione:<br/>
+<img src="1 7.png" /><br/>
+<br/>
+Ora ricontrolliamo l'utente:<br/>
+abbiamo pushato una proprietà!<br/>
+<img src="1 8.png" /><br/>
+<br/>
+10:07</body></html>
