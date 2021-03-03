@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>us-17-Mittal-Evading-MicrosoftATA-for-ActiveDirectory-Domination.pdf</string>
+  <key>nodeid</key><string>45fe02b7-3cc4-4576-a51a-c2c573fae57e</string>
+  <key>modified_time</key><integer>1614783210</integer>
+  <key>version</key><integer>6</integer>
+  <key>payload_filename</key><string>us-17-mittal-evading-microsoftata-for-ac.pdf</string>
+  <key>content_type</key><string>application/pdf</string>
+  <key>created_time</key><integer>1614783210</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
