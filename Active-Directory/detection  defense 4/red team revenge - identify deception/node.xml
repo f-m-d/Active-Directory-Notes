@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Red Team Revenge - Identify Deception</string>
+  <key>nodeid</key><string>1343f359-b944-4ab1-bf5a-d789cb1e19af</string>
+  <key>modified_time</key><integer>1614787162</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1614786744</integer>
+  <key>order</key><integer>1</integer>
+</dict>
+</node>

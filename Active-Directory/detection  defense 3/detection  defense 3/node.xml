@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Detection &amp; Defense 3</string>
+  <key>nodeid</key><string>d3f31856-47c5-4c80-9a78-1d543fb543ac</string>
+  <key>modified_time</key><integer>1614784773</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1614783998</integer>
+  <key>order</key><integer>0</integer>
+</dict>
+</node>
