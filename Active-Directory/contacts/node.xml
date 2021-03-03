@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Contacts</string>
+  <key>nodeid</key><string>4ea9516b-d9ac-4b47-a69c-63b6831691c0</string>
+  <key>modified_time</key><integer>1614789340</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1614789318</integer>
+  <key>order</key><integer>24</integer>
+  <key>icon</key><string>note-unknown.png</string>
+</dict>
+</node>
